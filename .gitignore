@@ -1,0 +1,26 @@
+# Dependency directory
+node_modules
+
+# local env variables
+.env
+
+# truffle build directory and migrations
+build/
+migrations/
+
+# personal helper files
+sign.js
+sigTra.js
+
+# macOS
+.DS_Store
+.vscode-test
+
+# truffle
+.node-xmlhttprequest-*
+
+# temporary artifact from solidity-coverage
+allFiredEvents
+.coverage_artifacts
+.coverage_cache
+.coverage_contracts

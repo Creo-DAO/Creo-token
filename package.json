@@ -1,0 +1,24 @@
+{
+  "name": "creo-token",
+  "version": "1.0.0",
+  "description": "Creo dao gov token",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lanre Popson",
+  "license": "ISC",
+  "dependencies": {
+    "@openzeppelin/contracts": "^3.2.0",
+    "dotenv": "^10.0.0",
+    "truffle-hdwallet-provider": "^1.0.17",
+    "web3": "^1.6.0"
+  },
+  "devDependencies": {
+    "@nomiclabs/buidler": "^1.4.8",
+    "truffle-plugin-verify": "^0.5.15"
+  }
+}
