@@ -18,9 +18,3 @@ sigTra.js
 
 # truffle
 .node-xmlhttprequest-*
-
-# temporary artifact from solidity-coverage
-allFiredEvents
-.coverage_artifacts
-.coverage_cache
-.coverage_contracts
