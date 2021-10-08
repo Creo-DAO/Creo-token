@@ -10,7 +10,6 @@ migrations/
 
 # personal helper files
 sign.js
-sigTra.js
 
 # macOS
 .DS_Store
