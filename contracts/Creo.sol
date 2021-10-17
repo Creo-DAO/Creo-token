@@ -747,8 +747,6 @@ contract Ownable is Context {
     }
 }
 
-
-
 /**
  * @dev Interface of the BEP20 standard as defined in the EIP.
  */
@@ -963,7 +961,7 @@ contract Creo is  Context, Ownable, IBEP20 {
     /**
      * @notice returns the % burn on each transfer.
      */
-    function setBurnFee(uint256 fee) public virtual returns (bool) {
+    function setBurnFee(uint256 fee) public virtual onlyOwner returns (bool) {
          _burnFee = fee;
         return true;
     }
@@ -1238,13 +1236,16 @@ contract Creo is  Context, Ownable, IBEP20 {
 
         _balances[sender] = _balances[sender].sub(amount, 'CREO: transfer amount exceeds balance');
         uint256 burnValue = amount.div(uint256(100 / _burnFee));
-        if(_burnFee > 0 && _totalSupply.sub(burnValue) >= _minSupply){
+        if(_burnFee > 0){
+        uint256 burnValue = amount.div(uint256(100 / _burnFee));
+        if (_totalSupply.sub(burnValue) >= _minSupply) {
         _totalSupply = _totalSupply.sub(burnValue);
         emit Transfer(_msgSender(), address(0), burnValue);
         _writeCheckpoint(_totalSupplyCheckpoints, _subtract, burnValue);
         _moveVotingPower(delegates(sender), address(0), burnValue);
         amount =  amount.sub(burnValue);
-    }
+            }    
+        }
         _balances[recipient] = _balances[recipient].add(amount);
         emit Transfer(sender, recipient, amount);
         _moveVotingPower(delegates(sender), delegates(recipient), amount);
