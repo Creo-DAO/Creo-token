@@ -1235,7 +1235,6 @@ contract Creo is  Context, Ownable, IBEP20 {
 
 
         _balances[sender] = _balances[sender].sub(amount, 'CREO: transfer amount exceeds balance');
-        uint256 burnValue = amount.div(uint256(100 / _burnFee));
         if(_burnFee > 0){
         uint256 burnValue = amount.div(uint256(100 / _burnFee));
         if (_totalSupply.sub(burnValue) >= _minSupply) {
